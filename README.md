@@ -15,15 +15,55 @@ during recording, and merge via `rsync` afterwards.
 
 ---
 
+## Example recording — `task1` 04/18/2026 19:56:52
+
+The five RGB streams below come from **one** session. All videos autoplay
+muted on page load and loop, so you can visually verify that the
+third-person and first-person views are time-aligned.
+
+<table>
+  <tr>
+    <td align="center"><b>Third person — cam 1</b></td>
+    <td align="center"><b>Third person — cam 2</b></td>
+  </tr>
+  <tr>
+    <td><video src="task1/04_18_2026/19_56_52/third_person/cam1/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="task1/04_18_2026/19_56_52/third_person/cam2/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Third person — cam 3</b></td>
+    <td align="center"><b>Third person — cam 4</b></td>
+  </tr>
+  <tr>
+    <td><video src="task1/04_18_2026/19_56_52/third_person/cam3/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="task1/04_18_2026/19_56_52/third_person/cam4/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><b>First person — on-robot ego camera</b></td>
+  </tr>
+  <tr>
+    <td colspan="2"><video src="task1/04_18_2026/19_56_52/first_person/ego_cam/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+  </tr>
+</table>
+
+<sub><i>Note: HTML5 `autoplay` starts each video as soon as the browser
+has buffered enough data, which typically happens within milliseconds of
+each other but is not frame-accurate. For a truly synchronous view
+(e.g. a 5-panel merged preview), run `ffmpeg` offline on these five
+clips — all timestamps in `rgb_timestamps.npy` are on the same Unix-epoch
+timeline so alignment is straightforward.</i></sub>
+
+---
+
 ## Repositories
 
-### 📹 [camera_record_pipeline](https://github.com/yuzhench/camera_record_pipeline)
+### 📹 [camera_record_pipeline](https://github.com/yuzhench/Harvard_AI_Robotics_cameras_recording_system)
 Laptop-side server. 4× Intel RealSense D435I cameras (third-person view),
 FastAPI backend, browser-based live preview + recording UI, WebGL point
 cloud viewer. Can run stand-alone as a 4-camera recorder, or paired with
 the robot repo below for full multi-modal capture.
 
-### 🤖 [go2_record_pipeline](https://github.com/yuzhench/go2_record_pipeline)
+### 🤖 [go2_record_pipeline](https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system)
 Robot-side daemon. Runs on the on-board Jetson and streams IMU, joint
 states, foot contact forces, ego RGB-D, and LiDAR point clouds. Controlled
 remotely via HTTP from the laptop UI.
@@ -45,7 +85,7 @@ remotely via HTTP from the laptop UI.
   `third_person/` (from laptop).
 
 Full architecture diagrams, time-sync setup, and network topology live
-in **[go2_record_pipeline/GO_NOTES/control_architecture.md](https://github.com/yuzhench/go2_record_pipeline/blob/main/GO_NOTES/control_architecture.md)**.
+in **[go2_record_pipeline/GO_NOTES/control_architecture.md](https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system/blob/main/GO_NOTES/control_architecture.md)**.
 
 ---
 
@@ -53,11 +93,11 @@ in **[go2_record_pipeline/GO_NOTES/control_architecture.md](https://github.com/y
 
 ```bash
 # Laptop side
-git clone https://github.com/yuzhench/camera_record_pipeline.git
+git clone https://github.com/yuzhench/Harvard_AI_Robotics_cameras_recording_system.git
 cd camera_record_pipeline && ./run.sh      # open http://localhost:8000
 
 # Jetson side
-git clone https://github.com/yuzhench/go2_record_pipeline.git
+git clone https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system.git
 rsync -avz go2_record_pipeline/ unitree@<jetson_ip>:~/Desktop/go2_record_pipeline/
 ssh unitree@<jetson_ip> "sudo systemctl restart record_daemon"
 ```
@@ -183,6 +223,6 @@ timeline — align by interpolation, no calibration constants needed.
 
 ## Further reading
 
-- [Architecture diagrams (§20)](https://github.com/yuzhench/go2_record_pipeline/blob/main/GO_NOTES/control_architecture.md#20-全局示意图用于-slide--report)
-- [Time synchronization setup (§19)](https://github.com/yuzhench/go2_record_pipeline/blob/main/GO_NOTES/control_architecture.md#19-时间同步chrony)
-- [Network topology (§16)](https://github.com/yuzhench/go2_record_pipeline/blob/main/GO_NOTES/control_architecture.md#16-笔记本与-jetson-通过-phswifi3-互通)
+- [Architecture diagrams (§20)](https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system/blob/main/GO_NOTES/control_architecture.md#20-全局示意图用于-slide--report)
+- [Time synchronization setup (§19)](https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system/blob/main/GO_NOTES/control_architecture.md#19-时间同步chrony)
+- [Network topology (§16)](https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system/blob/main/GO_NOTES/control_architecture.md#16-笔记本与-jetson-通过-phswifi3-互通)
