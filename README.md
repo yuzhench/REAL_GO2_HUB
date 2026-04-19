@@ -18,33 +18,11 @@ during recording, and merge via `rsync` afterwards.
 ## Example recording
 
 Five RGB streams from one session (`task1`, 04/18/2026 19:56:52) — four
-third-person D435Is and one ego view from the robot. They autoplay muted
-and loop.
+third-person D435Is on top and the ego view on the bottom, composited
+into one video so they play in sync.
 
-<table>
-  <tr>
-    <td align="center"><b>Third person — cam 1</b></td>
-    <td align="center"><b>Third person — cam 2</b></td>
-  </tr>
-  <tr>
-    <td><video src="https://github.com/user-attachments/assets/49af6ec7-22d8-4815-8114-67a8bd8d34e8" autoplay muted loop playsinline width="100%"></video></td>
-    <td><video src="https://github.com/user-attachments/assets/1e348189-4b4c-4fa3-93b1-6a0a35594cdd" autoplay muted loop playsinline width="100%"></video></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Third person — cam 3</b></td>
-    <td align="center"><b>Third person — cam 4</b></td>
-  </tr>
-  <tr>
-    <td><video src="https://github.com/user-attachments/assets/06b9637f-192f-474d-9b80-655d7a150ed4" autoplay muted loop playsinline width="100%"></video></td>
-    <td><video src="https://github.com/user-attachments/assets/d89cacc9-4ad4-4d43-a5d3-d04cfe30012e" autoplay muted loop playsinline width="100%"></video></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><b>First person — on-robot ego camera</b></td>
-  </tr>
-  <tr>
-    <td colspan="2"><video src="https://github.com/user-attachments/assets/cbe5d0a6-1941-4a36-8150-96f443e173ee" autoplay muted loop playsinline width="100%"></video></td>
-  </tr>
-</table>
+<video src="https://github.com/user-attachments/assets/c783f85d-6fb3-4a91-a616-83a45719920a"
+       autoplay muted loop playsinline width="100%"></video>
 
 ---
 
