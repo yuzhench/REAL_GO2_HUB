@@ -27,22 +27,22 @@ and loop.
     <td align="center"><b>Third person — cam 2</b></td>
   </tr>
   <tr>
-    <td><video src="https://raw.githubusercontent.com/yuzhench/REAL_GO2_HUB/main/task1/04_18_2026/19_56_52/third_person/cam1/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
-    <td><video src="https://raw.githubusercontent.com/yuzhench/REAL_GO2_HUB/main/task1/04_18_2026/19_56_52/third_person/cam2/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="https://github.com/user-attachments/assets/49af6ec7-22d8-4815-8114-67a8bd8d34e8" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="https://github.com/user-attachments/assets/1e348189-4b4c-4fa3-93b1-6a0a35594cdd" autoplay muted loop playsinline width="100%"></video></td>
   </tr>
   <tr>
     <td align="center"><b>Third person — cam 3</b></td>
     <td align="center"><b>Third person — cam 4</b></td>
   </tr>
   <tr>
-    <td><video src="https://raw.githubusercontent.com/yuzhench/REAL_GO2_HUB/main/task1/04_18_2026/19_56_52/third_person/cam3/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
-    <td><video src="https://raw.githubusercontent.com/yuzhench/REAL_GO2_HUB/main/task1/04_18_2026/19_56_52/third_person/cam4/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="https://github.com/user-attachments/assets/06b9637f-192f-474d-9b80-655d7a150ed4" autoplay muted loop playsinline width="100%"></video></td>
+    <td><video src="https://github.com/user-attachments/assets/d89cacc9-4ad4-4d43-a5d3-d04cfe30012e" autoplay muted loop playsinline width="100%"></video></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><b>First person — on-robot ego camera</b></td>
   </tr>
   <tr>
-    <td colspan="2"><video src="https://raw.githubusercontent.com/yuzhench/REAL_GO2_HUB/main/task1/04_18_2026/19_56_52/first_person/ego_cam/rgb.mp4" autoplay muted loop playsinline width="100%"></video></td>
+    <td colspan="2"><video src="https://github.com/user-attachments/assets/cbe5d0a6-1941-4a36-8150-96f443e173ee" autoplay muted loop playsinline width="100%"></video></td>
   </tr>
 </table>
 
@@ -87,11 +87,11 @@ in **[go2_record_pipeline/GO_NOTES/control_architecture.md](https://github.com/y
 ```bash
 # Laptop side
 git clone https://github.com/yuzhench/Harvard_AI_Robotics_cameras_recording_system.git
-cd camera_record_pipeline && ./run.sh      # open http://localhost:8000
+cd Harvard_AI_Robotics_cameras_recording_system && ./run.sh      # open http://localhost:8000
 
 # Jetson side
 git clone https://github.com/yuzhench/Harvard_AI_Robotics_go2_recording_system.git
-rsync -avz go2_record_pipeline/ unitree@<jetson_ip>:~/Desktop/go2_record_pipeline/
+rsync -avz Harvard_AI_Robotics_go2_recording_system/ unitree@<jetson_ip>:~/Desktop/go2_record_pipeline/
 ssh unitree@<jetson_ip> "sudo systemctl restart record_daemon"
 ```
 
